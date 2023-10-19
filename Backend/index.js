@@ -4,6 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
  import DBConnection from './database/db.js';
+import { Login, Register } from './Controoler/User.controller.js';
 
 
 
@@ -14,6 +15,8 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/', router);
+app.post("/register",Register)
+app.post("/login",Login)
 
 DBConnection();
 
