@@ -27,9 +27,9 @@ export const Register = async(req,res)=>{
 
 export const Login = async (req, res) =>{
   try {
-      const { email, password } = req.body
+      const { email,password } = req.body
 
-      if (!email || !password) return res.json({ success: false, message: "All fields are mandtory.." })
+      if (!email || !password) return res.status(404).json({ success: false, message: "All fields are mandtory.." })
 
       const user = await UserModal.findOne({ email:email })
       if (!user) return res.json({ success: false, message: "User not found.." })
@@ -58,6 +58,7 @@ export const Login = async (req, res) =>{
       return res.json({ success: false, message:error.message })
   }
 }
+
 
 export const getCurrentUser = async (req, res) => {
   try {
