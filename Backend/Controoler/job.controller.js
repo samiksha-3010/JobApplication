@@ -1,11 +1,8 @@
 import Job from "../Model/job.js";
 
-
-
 export const saveJobData = async (request, response) => {
     try {
         const newJob = new Job(request.body);
-
         await newJob.save();
         response.status(200).json({ message: 'Job saved successfully '});
     } catch (error) {
