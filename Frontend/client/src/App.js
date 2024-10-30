@@ -45,8 +45,6 @@ function App() {
       
      {/* < JobApplication/> */}
       <div>
-  
-
       </div>
 
     {selectedJob && (
